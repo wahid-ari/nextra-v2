@@ -1,0 +1,47 @@
+import Badge from '@components/Badge'
+import BadgeOutline from '@components/BadgeOutline'
+
+# Update Post (Form Data)
+
+To edit the data in the specified collection with the specified parameters.
+When a Form Data object is saved, the object properties are automatically added to the collection you specified.
+
+**Method :** <Badge variant="success">POST</Badge>
+
+**URL :** <Badge variant="dark">/url/(id)?_method=PUT</Badge>
+
+**Body :** <Badge variant="purple">Form Data</Badge>
+
+| Field       | Type     | Required |
+| :---------- | :------- | :------: |
+| title       | string   |    ✅    |
+| description | string   |    ✅    |
+| category[]  | string   |    ✅    |
+| category[]  | string   |    ✅    |
+
+**Response :** <BadgeOutline variant="success">200 - OK</BadgeOutline>
+
+```json
+{
+  "message": "success edit data",
+  "status": 200
+}
+```
+
+**Response :** <BadgeOutline variant="info">422 - Unprocessable Content</BadgeOutline>
+
+```json
+{
+  "error": {
+    "title": ["title can't be empty"],
+    "description": ["description can't be empty"],
+    "category": ["category can't be empty"]
+  }
+}
+```
+
+**Response :** <BadgeOutline variant="danger">500 - Server Error</BadgeOutline>
+
+```json
+Internal Server Error
+```

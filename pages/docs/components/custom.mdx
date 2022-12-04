@@ -1,0 +1,438 @@
+import { Callout } from 'nextra-theme-docs';
+import Image from "next/image";
+import Badge from "@components/Badge";
+import BadgeOutline from "@components/BadgeOutline";
+import Alert from "@components/Alert";
+import AlertOutline from "@components/AlertOutline";
+import Accordion from "@components/Accordion";
+import { Tab, Tabs } from 'nextra-theme-docs'
+import {
+	AcademicCapIcon,
+	AdjustmentsHorizontalIcon,
+	ArchiveBoxIcon,
+	BeakerIcon,
+	BellIcon,
+	BookmarkIcon,
+	BanknotesIcon,
+	BriefcaseIcon,
+	BoltIcon,
+	BuildingLibraryIcon,
+	CheckBadgeIcon,
+	CameraIcon,
+	ChartBarIcon,
+	ClipboardDocumentCheckIcon,
+	CreditCardIcon,
+	CubeIcon,
+	CircleStackIcon,
+	ComputerDesktopIcon,
+	CalendarDaysIcon,
+	CodeBracketSquareIcon,
+	CommandLineIcon,
+	FaceSmileIcon,
+	FilmIcon,
+	FireIcon,
+	FolderOpenIcon,
+	GiftIcon,
+	GlobeAltIcon,
+	InboxArrowDownIcon,
+	IdentificationIcon,
+	LightBulbIcon,
+	MegaphoneIcon,
+	MicrophoneIcon,
+	MoonIcon,
+	NewspaperIcon,
+	PlayCircleIcon,
+	PhotoIcon,
+	PrinterIcon,
+	RadioIcon,
+	RssIcon,
+	RocketLaunchIcon,
+	SunIcon,
+	SwatchIcon,
+	ServerStackIcon,
+	ShieldCheckIcon,
+	TrashIcon,
+} from "@heroicons/react/24/outline";
+import demo from "@public/demo.png";
+
+# Custom Component
+
+## Heroicons
+
+[Heroicons](https://heroicons.com/)
+
+<br />
+<div className="flex gap-3 flex-wrap sm:w-[540px]">
+	<CheckBadgeIcon className="h-6 w-6" />
+	<AcademicCapIcon className="h-6 w-6" />
+	<AdjustmentsHorizontalIcon className="h-6 w-6" />
+	<ArchiveBoxIcon className="h-6 w-6" />
+	<BeakerIcon className="h-6 w-6" />
+	<BellIcon className="h-6 w-6" />
+	<BookmarkIcon className="h-6 w-6" />
+	<BriefcaseIcon className="h-6 w-6" />
+	<CameraIcon className="h-6 w-6" />
+	<BanknotesIcon className="h-6 w-6" />
+	<ChartBarIcon className="h-6 w-6" />
+	<ClipboardDocumentCheckIcon className="h-6 w-6" />
+	<SwatchIcon className="h-6 w-6" />
+	<CreditCardIcon className="h-6 w-6" />
+	<CubeIcon className="h-6 w-6" />
+	<CircleStackIcon className="h-6 w-6" />
+	<ComputerDesktopIcon className="h-6 w-6" />
+	<FaceSmileIcon className="h-6 w-6" />
+	<FilmIcon className="h-6 w-6" />
+	<FireIcon className="h-6 w-6" />
+	<FolderOpenIcon className="h-6 w-6" />
+	<GiftIcon className="h-6 w-6" />
+	<GlobeAltIcon className="h-6 w-6" />
+	<InboxArrowDownIcon className="h-6 w-6" />
+	<BuildingLibraryIcon className="h-6 w-6" />
+	<LightBulbIcon className="h-6 w-6" />
+	<BoltIcon className="h-6 w-6" />
+	<NewspaperIcon className="h-6 w-6" />
+	<TrashIcon className="h-6 w-6" />
+	<CalendarDaysIcon className="h-6 w-6" />
+	<CodeBracketSquareIcon className="h-6 w-6" />
+	<CommandLineIcon className="h-6 w-6" />
+	<IdentificationIcon className="h-6 w-6" />
+	<MegaphoneIcon className="h-6 w-6" />
+	<MicrophoneIcon className="h-6 w-6" />
+	<MoonIcon className="h-6 w-6" />
+	<SunIcon className="h-6 w-6" />
+	<PlayCircleIcon className="h-6 w-6" />
+	<PhotoIcon className="h-6 w-6" />
+	<PrinterIcon className="h-6 w-6" />
+	<RadioIcon className="h-6 w-6" />
+	<RssIcon className="h-6 w-6" />
+	<RocketLaunchIcon className="h-6 w-6" />
+	<ServerStackIcon className="h-6 w-6" />
+	<ShieldCheckIcon className="h-6 w-6" />
+</div>
+
+```jsx filename="index.mdx" copy 
+import { CheckBadgeIcon } from "@heroicons/react/24/outline";
+
+<CheckBadgeIcon className="h-6 w-6" />
+```
+
+## Nextra Tabs
+
+```js filename="index.mdx" copy
+import { Tab, Tabs } from 'nextra-theme-docs'
+
+<Tabs items={["npm", "pnpm", "yarn"]}>
+	<Tab>npm</Tab>
+	<Tab>pnpm</Tab>
+	<Tab>yarn</Tab>
+</Tabs>
+```
+
+Render:
+
+<Tabs items={["npm", "pnpm", "yarn"]}>
+	<Tab>
+		```bash filename="bash" copy 
+		npm 
+		```
+	</Tab>
+	<Tab>
+		```bash filename="bash" copy 
+		pnpm 
+		```
+	</Tab>
+	<Tab>
+		```bash filename="bash" copy 
+		yarn 
+		```
+	</Tab>
+</Tabs>
+
+### Default Selected Index
+
+You can use the `defaultIndex` prop to set the default tab index:
+
+```jsx filename="index.mdx" copy
+import { Tab, Tabs } from 'nextra-theme-docs'
+ 
+<Tabs items={['pnpm', 'npm', 'yarn']} defaultIndex="1">
+  ...
+</Tabs>
+```
+
+<Tabs items={['pnpm', 'npm', 'yarn']} defaultIndex="1">
+  <Tab>
+    **pNPM**: Fast, disk space efficient package manager.
+  </Tab>
+  <Tab>
+    **npm** is a package manager for the JavaScript programming language.
+  </Tab>
+  <Tab>
+    **Yarn** is a software packaging system.
+  </Tab>
+</Tabs>
+
+## Accordion
+
+```js filename="index.mdx" copy 
+import Accordion from '@components/Accordion'
+
+<Accordion
+	title="Accordion A"
+	body="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+/>
+<Accordion
+	title="Accordion B"
+	body={
+		<div>
+			<p>
+				Lorem Ipsum is simply dummy text of the printing and typesetting
+				industry. Lorem Ipsum has been the industry's standard dummy text ever
+				since the 1500s.
+			</p>
+			<p className="!mt-2">
+				Contrary to popular belief, Lorem Ipsum is not simply random text. It
+				has roots in a piece of classical Latin literature from 45 BC, making it
+				over 2000 years old.
+			</p>
+		</div>
+	}
+/>
+```
+
+Render:
+
+<Accordion
+	title="Accordion A"
+	body="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+/>
+<Accordion
+	title="Accordion B"
+	body={
+		<div>
+			<p>
+				Lorem Ipsum is simply dummy text of the printing and typesetting
+				industry. Lorem Ipsum has been the industry's standard dummy text ever
+				since the 1500s.
+			</p>
+			<p className="!mt-2">
+				Contrary to popular belief, Lorem Ipsum is not simply random text. It
+				has roots in a piece of classical Latin literature from 45 BC, making it
+				over 2000 years old.
+			</p>
+		</div>
+	}
+/>
+
+## Badge
+
+```js filename="index.mdx" copy
+import Badge from '@components/Badge'
+
+<Badge>😂 Default</Badge>
+<Badge variant="success">Success</Badge>
+<Badge variant="warning">Warning</Badge>
+<Badge variant="info">Info</Badge>
+<Badge variant="purple">Purple</Badge>
+<Badge variant="danger">Danger</Badge>
+<Badge variant="dark">Dark</Badge>
+```
+
+Render:<br/><br/>
+
+<div className="flex flex-wrap gap-y-3">
+	<Badge>😂 Default</Badge>
+	<Badge variant="success">Success</Badge>
+	<Badge variant="warning">Warning</Badge>
+	<Badge variant="info">Info</Badge>
+	<Badge variant="purple">Purple</Badge>
+	<Badge variant="danger">Danger</Badge>
+	<Badge variant="dark">Dark</Badge>
+</div>
+
+## Badge Outline
+
+```js filename="index.mdx" copy
+import BadgeOutline from '@components/BadgeOutline'
+
+<BadgeOutline>😂 Default</BadgeOutline>
+<BadgeOutline variant="success">Success</BadgeOutline>
+<BadgeOutline variant="warning">Warning</BadgeOutline>
+<BadgeOutline variant="info">Info</BadgeOutline>
+<BadgeOutline variant="purple">Purple</BadgeOutline>
+<BadgeOutline variant="danger">Danger</BadgeOutline>
+<BadgeOutline variant="dark">Dark</BadgeOutline>
+```
+
+Render:<br/><br/>
+
+<div className="flex flex-wrap gap-y-3">
+	<BadgeOutline>😂 Default</BadgeOutline>
+	<BadgeOutline variant="success">Success</BadgeOutline>
+	<BadgeOutline variant="warning">Warning</BadgeOutline>
+	<BadgeOutline variant="info">Info</BadgeOutline>
+	<BadgeOutline variant="purple">Purple</BadgeOutline>
+	<BadgeOutline variant="danger">Danger</BadgeOutline>
+	<BadgeOutline variant="dark">Dark</BadgeOutline>
+</div>
+
+## Alert
+
+```js filename="index.mdx" copy
+import Alert from '@components/Alert'
+
+<Alert>😂 Default</Alert>
+<Alert variant="success"><span className="font-semibold">Success !</span> Success message</Alert>
+<Alert variant="warning"><span className="font-bold">Warning !</span> Warning message</Alert>
+<Alert variant="info">Info</Alert>
+<Alert variant="purple">Purple</Alert>
+<Alert variant="danger">Danger</Alert>
+<Alert variant="dark">Dark</Alert>
+```
+
+Render:<br/><br/>
+
+<Alert>😂 Default</Alert>
+<Alert variant="success">
+	<span className="font-semibold">Success !</span> Success message
+</Alert>
+<Alert variant="warning">
+	<span className="font-bold">Warning !</span> Warning message
+</Alert>
+<Alert variant="info">Info</Alert>
+<Alert variant="purple">Purple</Alert>
+<Alert variant="danger">Danger</Alert>
+<Alert variant="dark">Dark</Alert>
+
+## Alert Outline
+
+```js filename="index.mdx" copy
+import AlertOutline from '@components/AlertOutline'
+
+<AlertOutline>😂 Default</AlertOutline>
+<AlertOutline variant="success"><span className="font-semibold">Success !</span> Success message</AlertOutline>
+<AlertOutline variant="warning"><span className="font-bold">Warning !</span> Warning message</AlertOutline>
+<AlertOutline variant="info">Info</AlertOutline>
+<AlertOutline variant="purple">Purple</AlertOutline>
+<AlertOutline variant="danger">Danger</AlertOutline>
+<AlertOutline variant="dark">Dark</AlertOutline>
+```
+
+Render:<br/><br/>
+
+<AlertOutline>😂 Default</AlertOutline>
+<AlertOutline variant="success">
+	<span className="font-semibold">Success !</span> Success message
+</AlertOutline>
+<AlertOutline variant="warning">
+	<span className="font-bold">Warning !</span> Warning message
+</AlertOutline>
+<AlertOutline variant="info">Info</AlertOutline>
+<AlertOutline variant="purple">Purple</AlertOutline>
+<AlertOutline variant="danger">Danger</AlertOutline>
+<AlertOutline variant="dark">Dark</AlertOutline>
+
+## Custom div
+
+```html filename="index.mdx" copy
+<div className="p-4 border border-gray-200 dark:border-neutral-800 rounded mt-6">
+	Stars on GitHub!
+</div>
+```
+
+Render:
+
+<div className="p-4 border border-gray-200 dark:border-neutral-800 rounded mt-6">
+	Stars on GitHub!
+</div>
+
+## Callout
+
+### Default
+
+```js filename="index.mdx" copy
+import { Callout } from 'nextra-theme-docs';
+
+<Callout emoji="⚡">
+	**Space Invaders** is a 1978 shoot 'em up arcade game developed by Tomohiro
+	Nishikado.
+</Callout>;
+```
+
+<Callout emoji="⚡">
+	**Space Invaders** is a 1978 shoot 'em up arcade game developed by Tomohiro
+	Nishikado.
+</Callout>
+
+### Info
+
+```js filename="index.mdx" copy
+import { Callout } from 'nextra-theme-docs';
+
+<Callout type="info" emoji="☑️">
+	**Space Invaders** is a 1978 shoot 'em up arcade game developed by Tomohiro
+	Nishikado.
+</Callout>;
+```
+
+<Callout type="info" emoji="☑️">
+	**Space Invaders** is a 1978 shoot 'em up arcade game developed by Tomohiro
+	Nishikado.
+</Callout>
+
+### Warning
+
+```js filename="index.mdx" copy
+import { Callout } from 'nextra-theme-docs';
+
+<Callout type="warning" emoji="⚠️">
+	This API will be deprecated soon.
+</Callout>;
+```
+
+<Callout type="warning" emoji="⚠️">
+	This API will be deprecated soon.
+</Callout>
+
+### Error
+
+```js filename="index.mdx" copy
+import { Callout } from 'nextra-theme-docs';
+
+<Callout type="error" emoji="️⛔">
+	This is a dangerous feature that can cause everything to explode.
+</Callout>;
+```
+
+<Callout type="error" emoji="️⛔">
+	This is a dangerous feature that can cause everything to explode.
+</Callout>
+
+You can use import and use React components inside your Markdown files like this:
+
+```js filename="index.mdx" copy
+import { Callout } from 'nextra-theme-docs';
+
+<div className="p-4 border border-gray-200 dark:border-gray-900 rounded mt-6">
+	**Markdown With React Components**
+	<Callout emoji="✅">
+		**MDX** (the library), at its core, transforms MDX (the syntax) to JSX. It
+		receives an MDX string and outputs a _JSX string_. It does this by parsing
+		the MDX document to a syntax tree and then generates a JSX document from
+		that tree.
+	</Callout>
+</div>;
+```
+
+Render:
+
+<div className="p-4 border border-gray-200 dark:border-gray-900 rounded mt-6">
+**Markdown With React Components**
+
+<Callout emoji="✅">
+  **MDX** (the library), at its core, transforms MDX (the syntax) to JSX. It
+  receives an MDX string and outputs a _JSX string_. It does this by parsing the
+  MDX document to a syntax tree and then generates a JSX document from that
+  tree.
+</Callout>
+</div>

@@ -1,0 +1,31 @@
+import Badge from '@components/Badge'
+import BadgeOutline from '@components/BadgeOutline'
+
+# Delete
+
+You can delete data that has been stored in database by sending a DELETE request to remove a document using the unique `id`
+
+**Method :** <Badge variant="danger">DELETE</Badge>
+
+**URL :** <Badge variant="dark">/url/(id)</Badge>
+
+**Response :** <BadgeOutline variant="success">200 - OK</BadgeOutline>
+
+```json
+{
+  "message": "success delete data",
+  "status": 200
+}
+```
+
+**Response :** <BadgeOutline variant="warning">404 - Not Found</BadgeOutline>
+
+```json
+Not Found
+```
+
+**Response :** <BadgeOutline variant="danger">500 - Server Error</BadgeOutline>
+
+```json
+Internal Server Error
+```

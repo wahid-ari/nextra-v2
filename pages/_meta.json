@@ -1,0 +1,47 @@
+{
+  "index": "Introduction",
+  "another": "Another Page",
+  "---": {
+    "type": "separator"
+  },
+  "advanced": "Advanced (A Folder)",
+  "-- Themes --": {
+    "type": "separator",
+    "title": "Themes"
+  },
+  "features": {
+    "title": "Features",
+    "type": "page"
+  },
+  "blog": {
+    "title": "Blog",
+    "type": "page",
+    "theme": {
+      "sidebar": false
+    }
+  },
+  "about": {
+    "title": "About",
+    "type": "page"
+  },
+  "company": {
+    "title": "Company",
+    "type": "menu",
+    "items": {
+      "about": {
+        "title": "About",
+        "href": "/about"
+      },
+      "contact": {
+        "title": "Contact Us",
+        "href": "mailto:hi@example.com"
+      }
+    }
+  },
+  "contact": {
+    "title": "Contact ↗",
+    "type": "page",
+    "href": "https://twitter.com",
+    "newWindow": true
+  }
+}

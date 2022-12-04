@@ -1,0 +1,10 @@
+{
+  "template": "Template",
+  "get": "Get",
+  "create": "Create",
+  "create-formdata": "Create (Form Data)",
+  "update": "Update Put",
+  "update-post-json": "Update Post (JSON)",
+  "update-post-formdata": "Update Post (Form Data)",
+  "delete": "Delete"
+}

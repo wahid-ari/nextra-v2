@@ -1,0 +1,139 @@
+import Badge from "@components/Badge";
+import BadgeOutline from "@components/BadgeOutline";
+
+# Template
+
+## Description
+
+### GET
+
+To <span className="text-blue-500 font-semibold">GET</span> the data in the specified collection. If no parameters are passed, it lists all of them.
+Otherwise, it lists the documents in the collection matching the specified parameters.
+
+### CREATE
+
+To <span className="text-green-500 font-semibold">CREATE</span> the data in the specified collection with the specified parameters.
+When a JSON or Form Data object is saved, the object properties are automatically added to the collection you specified.
+
+### PUT (Update)
+
+To <span className="text-orange-500 font-semibold">PUT</span> (Update) the data in the specified collection with the specified parameters.
+When a JSON or Form Data object is saved, the object properties are automatically updated to the collection you specified.
+
+### DELETE
+
+To <span className="text-red-500 font-semibold">DELETE</span> the data that has been stored in database by sending a DELETE request to remove a document using the unique `id`
+or other specified parameters
+
+## Method
+
+**Method :** <Badge>GET</Badge>
+<Badge variant="success">POST</Badge>
+<Badge variant="info">PUT</Badge>
+<Badge variant="danger">DELETE</Badge>
+
+## URL
+
+**URL :** <Badge variant="dark">/url</Badge>
+
+## Body
+
+**Body :** <Badge variant="purple">JSON</Badge>
+
+```json
+{
+	"title": "title",
+	"description": "description"
+}
+```
+
+**Body :** <Badge variant="purple">Form Data</Badge>
+
+| Field       | Type   | Required |
+| :---------- | :----- | :------: |
+| title       | string |    ✅    |
+| description | string |    ✅    |
+
+## Response
+
+[HTTP response status codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#information_responses)
+<br/>
+<div className="flex flex-wrap gap-y-2">
+<BadgeOutline variant="success">200 - OK</BadgeOutline>
+<BadgeOutline variant="success">201 - Created</BadgeOutline>
+<BadgeOutline variant="success">202 - Accepted</BadgeOutline>
+<BadgeOutline variant="warning">400 - Bad Request</BadgeOutline>
+<BadgeOutline variant="warning">401 - Unauthorized</BadgeOutline>
+<BadgeOutline variant="warning">404 - Not Found</BadgeOutline>
+<BadgeOutline variant="warning">405 - Method Not Allowed</BadgeOutline>
+<BadgeOutline variant="info">422 - Unprocessable Content</BadgeOutline>
+<BadgeOutline variant="info">408 - Request Timeout</BadgeOutline>
+<BadgeOutline variant="danger">500 - Server Error</BadgeOutline>
+<BadgeOutline variant="danger">503 - Service Unavailable</BadgeOutline>
+<BadgeOutline variant="danger">504 - Gateway Timeout</BadgeOutline>
+</div>
+
+**Response :** <BadgeOutline variant="success">200 - OK</BadgeOutline>
+
+```json
+{
+	"data": [
+		{
+			"title": "Ad aut reprehenderit minima praesentium quos illum nihil.",
+			"description": "Cum omnis neque at rerum nostrum. Et rerum adipisci magnam quibusdam architecto enim. Sint repellat..."
+		}
+	]
+}
+```
+
+**Response :** <BadgeOutline variant="warning">404 - Not Found</BadgeOutline>
+
+```json
+Not Found
+```
+
+**Response :** <BadgeOutline variant="info">422 - Unprocessable Content</BadgeOutline>
+
+```json
+{
+	"error": {
+		"title": ["title can't be empty"],
+		"description": ["description can't be empty"]
+	}
+}
+```
+
+**Response :** <BadgeOutline variant="danger">500 - Server Error</BadgeOutline>
+
+```json
+Internal Server Error
+```
+
+**Response Codes**
+
+| Code  | Description |
+| :-    | :- |
+| `200` | The alias was successfully assigned to the deployment |
+| `202` | File successfully uploaded |
+| `400` | One of the provided values in the request query / body is invalid. |
+| `401` | Invalid token or the request is missing an authentication token |
+| `403` | You do not have permission to access this resource |
+| `404` | The domain used for the alias was not found. The deployment was not found |
+
+| Code  | Alias | Description |
+| :-    | :-    | :- |
+| `200` | OK | The request succeeded. The result meaning of "success" depends on the HTTP method |
+| `201` | Created | The request succeeded, and a new resource was created as a result. This is typically the response sent after POST requests, or some PUT requests. |
+| `202` | Accepted | The request has been received but not yet acted upon. It is intended for cases where another process or server handles the request, or for batch processing. |
+| `400` | Bad Request | The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing). |
+| `401` | Unauthorized | Although the HTTP standard specifies "unauthorized", semantically this response means "unauthenticated". That is, the client must authenticate itself to get the requested response. |
+| `403` | Forbidden | The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server. |
+| `404` | Not Found | The server can not find the requested resource. In the browser, this means the URL is not recognized. In an API, this can also mean that the endpoint is valid but the resource itself does not exist. |
+| `405` | Method Not Allowed | The request method is known by the server but is not supported by the target resource. For example, an API may not allow calling DELETE to remove a resource. |
+| `408` | Request Timeout | This response is sent on an idle connection by some servers, even without any previous request by the client. It means that the server would like to shut down this unused connection. |
+| `422` | Unprocessable Entity | The request was well-formed but was unable to be followed due to semantic errors. |
+| `429` | Too Many Requests | The user has sent too many requests in a given amount of time ("rate limiting"). |
+| `500` | Internal Server Error | The server has encountered a situation it does not know how to handle. |
+| `502` | Bad Gateway  | This error response means that the server, while working as a gateway to get a response needed to handle the request, got an invalid response. |
+| `503` | Service Unavailable | The server is not ready to handle the request. Common causes are a server that is down for maintenance or that is overloaded. |
+| `504` | Gateway Timeout | This error response is given when the server is acting as a gateway and cannot get a response in time. |

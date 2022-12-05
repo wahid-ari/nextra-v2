@@ -1,11 +1,419 @@
+import { Card, Cards } from "@components/cards";
+import { Callout, Tab, Tabs } from 'nextra-theme-docs';
+import { OptionTable } from '@components/OptionTable';
+
 # Introduction
- 
+
 Welcome to Nextra! This is a basic docs template. You can use it as a starting point for your own project :)
 
 ## What is Nextra?
 
 A **simple**, **powerful** and **flexible** site generation framework with everything you love from Next.js.
 
+## Features
+
+To start using Nextra, you need to select a theme first:
+
+<Cards num={2}>
+  <Card
+    image
+    arrow
+    title="Documentation theme"
+    href="/docs/#">
+    <>![Documentation theme](../../public/blog/commitfest.webp)</>
+  </Card>
+  <Card
+    image
+    arrow
+    title="Blog theme"
+    href="/docs/#">
+    <>![Blog theme](../../public/blog/sql.webp)</>
+  </Card>
+</Cards>
+
+<OptionTable options={[
+  ['useNextSeoProps', '(() => NextSeoProps)', 'A React hook function that returns options for Next SEO.'],
+]}/>
+
+<OptionTable options={[
+  ['docsRepositoryBase', 'string', 'URL of the documentation repository.'],
+]}/>
+
+<OptionTable options={[
+  ['darkMode', 'boolean', 'Show or hide the dark mode toggle button.'],
+  ['nextThemes', 'object', <>Configuration for the <a href="https://github.com/pacocoursey/next-themes#themeprovider" target="_blank">next-themes</a> package.</>],
+]}/>
+
+### Inlined Code
+
+Inlined syntax highlighting like `let x = 1{:jsx}` is also supported via the `{:}` syntax:
+
+````md filename="Markdown"
+Inlined syntax highlighting is also supported `let x = 1{:jsx}` via:
+````
+
+### Highlighting Lines
+
+You can highlight specific lines of code by adding a `{}` attribute to the code block:
+
+````md filename="Markdown"
+```js {1,4-5}
+import { useState } from 'react'
+
+function Counter() {
+  const [count, setCount] = useState(0)
+  return <button onClick={() => setCount(count + 1)}>{count}</button>
+}
+```
+````
+
+Result:
+
+```js {1,4-5}
+import { useState } from 'react'
+
+function Counter() {
+  const [count, setCount] = useState(0)
+  return <button onClick={() => setCount(count + 1)}>{count}</button>
+}
+```
+
+### Highlighting Substrings
+
+You can highlight specific substrings of code by adding a `//` attribute to the code block:
+
+````md filename="Markdown"
+```js /useState/
+import { useState } from 'react'
+
+function Counter() {
+  const [count, setCount] = useState(0)
+  return <button onClick={() => setCount(count + 1)}>{count}</button>
+}
+```
+````
+
+```js /useState/
+import { useState } from 'react'
+
+function Counter() {
+  const [count, setCount] = useState(0)
+  return <button onClick={() => setCount(count + 1)}>{count}</button>
+}
+```
+
+You can highlight only a part of the occurrences of that substring by adding a number it: `/str/1`, or multiple: `/str/1-3`, `/str/1,3`.
+
+### Line Numbers
+
+You can add line numbers to your code blocks by adding a `showLineNumbers` attribute:
+
+````md filename="Markdown"
+```js showLineNumbers
+import { useState } from 'react'
+
+function Counter() {
+  const [count, setCount] = useState(0)
+  return <button onClick={() => setCount(count + 1)}>{count}</button>
+}
+```
+````
+
+Renders:
+
+```js showLineNumbers
+import { useState } from 'react'
+
+function Counter() {
+  const [count, setCount] = useState(0)
+  return <button onClick={() => setCount(count + 1)}>{count}</button>
+}
+```
+
+## React Component
+
+With Nextra, all your `.mdx` files under the pages directory will be rendered with [MDX](https://mdxjs.com/about), it's an
+advanced Markdown format with React component support.
+
+For example, you can use import and use React components inside your Markdown files like this:
+
+import { useState } from "react";
+
+export function Counter({ children }) {
+	const [count, setCount] = useState(0);
+	return (
+		<button onClick={() => setCount(count + 1)}>
+			{children}
+			{count}
+		</button>
+	);
+}
+
+```jsx filename="index.mdx" copy
+import { useState } from "react";
+
+export function Counter({ children }) {
+	const [count, setCount] = useState(0);
+	return (
+		<button onClick={() => setCount(count + 1)}>
+			{children}
+			{count}
+		</button>
+	);
+}
+
+<div className="mt-4 p-4 rounded border dark:border-neutral-800">
+	<Counter>**Clicks** : </Counter>
+</div>
+```
+
+Render :
+
+<div className="mt-4 p-4 rounded border dark:border-neutral-800">
+	<Counter>**Clicks** : </Counter>
+</div>
+
 ## Documentation
 
 The documentation is available at [https://nextra.site](https://nextra.site).
+
+<Cards>
+	<Card
+		icon={
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				fill="none"
+				viewBox="0 0 24 24"
+				strokeWidth={1.5}
+				stroke="currentColor"
+				className="w-6 h-6"
+			>
+				<path
+					strokeLinecap="round"
+					strokeLinejoin="round"
+					d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 01-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 011.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 00-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 01-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5a3.375 3.375 0 00-3.375-3.375H9.75"
+				/>
+			</svg>
+		}
+		title="Organize Files"
+		href="/docs/#"
+	/>
+	<Card
+		icon={
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				fill="none"
+				viewBox="0 0 24 24"
+				strokeWidth={1.5}
+				stroke="currentColor"
+				className="w-6 h-6"
+			>
+				<path
+					strokeLinecap="round"
+					strokeLinejoin="round"
+					d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z"
+				/>
+			</svg>
+		}
+		title="Syntax Highlighting"
+		href="/docs/#"
+	/>
+	<Card
+		icon={
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				viewBox="0 0 24 24"
+				fill="currentColor"
+				className="w-6 h-6"
+			>
+				<path
+					fillRule="evenodd"
+					d="M14.615 1.595a.75.75 0 01.359.852L12.982 9.75h7.268a.75.75 0 01.548 1.262l-10.5 11.25a.75.75 0 01-1.272-.71l1.992-7.302H3.75a.75.75 0 01-.548-1.262l10.5-11.25a.75.75 0 01.913-.143z"
+					clipRule="evenodd"
+				/>
+			</svg>
+		}
+		title="Next.js SSG"
+		href="/docs/#"
+	/>
+	<Card
+		icon={
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				fill="none"
+				viewBox="0 0 24 24"
+				strokeWidth={1.5}
+				stroke="currentColor"
+				className="w-6 h-6"
+			>
+				<path
+					strokeLinecap="round"
+					strokeLinejoin="round"
+					d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
+				/>
+			</svg>
+		}
+		title="Next.js Image"
+		href="/docs/#"
+	/>
+	<Card
+		icon={
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				fill="none"
+				viewBox="0 0 24 24"
+				strokeWidth={1.5}
+				stroke="currentColor"
+				className="w-6 h-6"
+			>
+				<path
+					strokeLinecap="round"
+					strokeLinejoin="round"
+					d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244"
+				/>
+			</svg>
+		}
+		title="Next.js Link"
+		href="/docs/#"
+	/>
+	<Card
+		icon={
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				fill="none"
+				viewBox="0 0 24 24"
+				strokeWidth={1.5}
+				stroke="currentColor"
+				className="w-6 h-6"
+			>
+				<path
+					strokeLinecap="round"
+					strokeLinejoin="round"
+					d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"
+				/>
+			</svg>
+		}
+		title="TypeScript"
+		href="/docs/#"
+	/>
+</Cards>
+
+<Cards>
+	<Card
+		icon={
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				fill="none"
+				viewBox="0 0 24 24"
+				strokeWidth={1.5}
+				stroke="currentColor"
+				className="w-6 h-6"
+			>
+				<path
+					strokeLinecap="round"
+					strokeLinejoin="round"
+					d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25M16.5 7.5V18a2.25 2.25 0 002.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 002.25 2.25h13.5M6 7.5h3v3H6v-3z"
+				/>
+			</svg>
+		}
+		title="Docs Theme →"
+		href="/docs/#"
+	/>
+	<Card
+		icon={
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				fill="none"
+				viewBox="0 0 24 24"
+				strokeWidth={1.5}
+				stroke="currentColor"
+				className="w-6 h-6"
+			>
+				<path
+					strokeLinecap="round"
+					strokeLinejoin="round"
+					d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"
+				/>
+			</svg>
+		}
+		title="Blog Theme →"
+		href="/docs/#"
+	/>
+</Cards>
+
+## Start as New Project
+
+<div className="steps-container">
+
+### Install
+
+To create a Nextra Docs site manually, you have to install **Next.js**, **React**, **Nextra**, and **Nextra Docs Theme**. In your project directory, run the following command to install the dependencies:
+
+<Tabs items={['pnpm', 'npm', 'yarn']}>
+  <Tab>
+    ```bash
+    pnpm i next react react-dom nextra nextra-theme-docs
+    ```
+  </Tab>
+  <Tab>
+    ```bash
+    npm i next react react-dom nextra nextra-theme-docs
+    ```
+  </Tab>
+  <Tab>
+    ```bash
+    yarn add next react react-dom nextra nextra-theme-docs
+    ```
+  </Tab>
+</Tabs>
+
+<Callout>
+  If you already have Next.js installed in your project, you only need to install `nextra` and `nextra-theme-docs` as the add-ons.
+</Callout>
+
+### Add Next.js Config
+
+Create the following `next.config.js` file in your project’s root directory:
+
+```js filename="next.config.js"
+const withNextra = require('nextra')({
+  theme: 'nextra-theme-docs',
+  themeConfig: './theme.config.jsx',
+})
+
+module.exports = withNextra()
+
+// If you have other Next.js configurations, you can pass them as the parameter:
+// module.exports = withNextra({ /* other next.js config */ })
+```
+
+With the above configuration, Nextra can handle Markdown files in your Next.js project, with the specified theme. Other Nextra configurations can be found in [Guide](/docs/guide).
+
+### Create Docs Theme Config
+
+Lastly, create the corresponding `theme.config.jsx` file in your project’s root directory. This will be used to configure the Nextra Docs theme:
+
+```jsx filename="theme.config.jsx"
+export default {
+  logo: <span>My Nextra Documentation</span>,
+  project: {
+    link: 'https://github.com/shuding/nextra',
+  },
+  // ...
+}
+```
+
+Full theme configurations can be found [here](/docs/docs-theme/theme-configuration).
+
+### Ready to Go!
+
+Now, you can create your first MDX page as `pages/index.mdx`:
+
+```mdx filename="pages/index.mdx"
+# Welcome to Nextra
+
+Hello, world!
+```
+
+And run the `pnpm next` command to start developing the project! 🎉
+</div>

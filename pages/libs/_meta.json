@@ -1,0 +1,9 @@
+{
+  "sandpack": { 
+    "title": "Sandpack",
+    "theme": {
+      "breadcrumb": false
+    }
+  },
+  "chart": "Chart"
+}

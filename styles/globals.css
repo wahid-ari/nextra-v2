@@ -34,6 +34,10 @@ div.nextra-search {
 	@apply md:w-48;
 }
 
+footer > div.nx-py-12 {
+  @apply py-8;
+}
+
 .steps-container {
   margin-left: 1rem;
   padding-left: 1.5rem;

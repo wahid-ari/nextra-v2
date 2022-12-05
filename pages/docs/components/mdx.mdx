@@ -99,7 +99,6 @@ _italicized_
 ```
 
 ---
-***
 
 ## Image
 
@@ -220,7 +219,7 @@ www.example.com, https://example.com, and contact@example.com.
 Automatically syntax highlighting:
 
 ````markdown filename="index.mdx" copy
-```js filename="index.mdx"
+```js filename="index.mdx" copy
 console.log("hello, world");
 ```
 ````
@@ -230,6 +229,22 @@ Renders:
 ```js filename="index.mdx" copy
 console.log("hello, world");
 ```
+
+### Inlined Code
+
+```markdown filename="index.mdx" copy
+You can use \`content\` to wrap inline code content like: `let x = 1`.
+```
+
+You can use \`content\` to wrap inline code content like: `let x = 1`.
+
+Inlined syntax highlighting like `let x = 1{:jsx}` is also supported via the `{:}` syntax:
+
+````md filename="Markdown"
+Inlined syntax highlighting is also supported `let x = 1{:jsx}` via:
+````
+
+### Highlighting Lines
 
 You can also add the `{line number, line number-line number}` modifier to highlight specific lines:
 
@@ -259,6 +274,72 @@ function Profile() {
 }
 ```
 
+### Highlighting Substrings
+
+You can highlight specific substrings of code by adding a `//` attribute to the code block:
+
+````md filename="Markdown" copy
+```js /useState/
+import { useState } from 'react'
+
+function Counter() {
+  const [count, setCount] = useState(0)
+  return <button onClick={() => setCount(count + 1)}>{count}</button>
+}
+```
+````
+
+```js /useState/ copy
+import { useState } from 'react'
+
+function Counter() {
+  const [count, setCount] = useState(0)
+  return <button onClick={() => setCount(count + 1)}>{count}</button>
+}
+```
+
+You can highlight only a part of the occurrences of that substring by adding a number it: `/str/1`, or multiple: `/str/1-3`, `/str/1,3`.
+
+### Line Numbers
+
+You can add line numbers to your code blocks by adding a `showLineNumbers` attribute:
+
+````md filename="Markdown" copy
+```js showLineNumbers
+import { useState } from 'react'
+
+function Counter() {
+  const [count, setCount] = useState(0)
+  return <button onClick={() => setCount(count + 1)}>{count}</button>
+}
+```
+````
+
+Renders:
+
+```js showLineNumbers copy
+import { useState } from 'react'
+
+function Counter() {
+  const [count, setCount] = useState(0)
+  return <button onClick={() => setCount(count + 1)}>{count}</button>
+}
+```
+
+### Copy Button
+
+By adding a copy attribute, a copy button will be added to the code block when the user hovers over it:
+
+````md copy
+```js copy
+console.log('hello, world')
+```
+````
+
+```js copy
+console.log('hello, world')
+```
+
 ## Diff Code
 
 ````markdown filename="index.mdx" copy
@@ -272,14 +353,6 @@ function Profile() {
 - import { useSWRInfinite } from 'swr'
 + import useSWRInfinite from 'swr/infinite'
 ```
-
-## Inline Code
-
-```markdown filename="index.mdx" copy
-You can use \`content\` to wrap inline code content like: `let x = 1`.
-```
-
-You can use \`content\` to wrap inline code content like: `let x = 1`.
 
 ## Blockquote
 

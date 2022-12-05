@@ -5,7 +5,9 @@ import BadgeOutline from "@components/BadgeOutline";
 import Alert from "@components/Alert";
 import AlertOutline from "@components/AlertOutline";
 import Accordion from "@components/Accordion";
-import { Tab, Tabs } from 'nextra-theme-docs'
+import { Tab, Tabs } from 'nextra-theme-docs';
+import { OptionTable } from '@components/OptionTable';
+import { Tree, File, Folder } from '@components/FileTree';
 import {
 	AcademicCapIcon,
 	AdjustmentsHorizontalIcon,
@@ -56,6 +58,117 @@ import {
 import demo from "@public/demo.png";
 
 # Custom Component
+
+## File Tree
+
+Component to show folders and file structure
+
+```jsx filename="index.mdx" copy
+import { Tree, File, Folder } from '@components/FileTree';
+
+<Tree>
+  <Folder name="pages" defaultOpen>
+    <Folder name="frameworks" defaultOpen>
+      <File name="react.mdx" />
+    </Folder>
+    <Folder name="fruits" defaultOpen>
+      <File name="apple.mdx" />
+    </Folder>
+    <File name="_meta.json" />
+    <File name="index.mdx" />
+  </Folder>
+</Tree>
+```
+
+<Tree>
+  <Folder name="pages" defaultOpen>
+    <Folder name="frameworks" defaultOpen>
+      <File name="react.mdx" />
+    </Folder>
+    <Folder name="fruits" defaultOpen>
+      <File name="apple.mdx" />
+    </Folder>
+    <File name="_meta.json" />
+    <File name="index.mdx" />
+  </Folder>
+</Tree>
+
+## Custom Table
+
+```jsx filename="index.mdx" copy
+import { OptionTable } from '@components/OptionTable';
+
+<OptionTable options={[
+  ['darkMode', 'boolean', 'Show or hide the dark mode toggle button.'],
+  ['nextThemes', 'object', <>Configuration for the <a href="https://github.com/pacocoursey/next-themes#themeprovider" target="_blank">next-themes</a> package.</>],
+]}/>
+```
+
+<OptionTable options={[
+  ['darkMode', 'boolean', 'Show or hide the dark mode toggle button.'],
+  ['nextThemes', 'object', <>Configuration for the <a href="https://github.com/pacocoursey/next-themes#themeprovider" target="_blank">next-themes</a> package.</>],
+]}/>
+
+## React Component
+
+With Nextra, all your `.mdx` files under the pages directory will be rendered with [MDX](https://mdxjs.com/about), it's an
+advanced Markdown format with React component support.
+
+For example, you can use import and use React components inside your Markdown files like this:
+
+import { useState } from "react";
+
+export function Counter({ children }) {
+	const [count, setCount] = useState(0);
+	return (
+		<div className="flex items-center gap-2">
+			<button className="flex items-center gap-2" onClick={() => setCount(count + 1)}>
+				{children}
+				{count}
+			</button>
+			<button onClick={() => setCount(0)}
+				className="bg-red-500 hover:bg-red-600 transition-all duration-200 font-medium px-1.5 py-0.5 rounded text-sm"	
+			>
+				Reset
+			</button>
+		</div>
+	);
+}
+
+```jsx filename="index.mdx" copy
+import { useState } from "react";
+
+export function Counter({ children }) {
+	const [count, setCount] = useState(0);
+	return (
+		<div className="flex items-center gap-2">
+			<button className="flex items-center gap-2" onClick={() => setCount(count + 1)}>
+				{children}
+				{count}
+			</button>
+			<button onClick={() => setCount(0)}
+				className="bg-red-500 hover:bg-red-600 transition-all duration-200 font-medium px-1.5 py-0.5 rounded text-sm"	
+			>
+				Reset
+			</button>
+		</div>
+	);
+}
+
+<div className="mt-4 p-4 rounded border dark:border-neutral-800">
+	<Counter>
+		<span className="bg-blue-500 hover:bg-blue-600 transition-all duration-200 font-medium px-1.5 py-0.5 rounded text-sm">Click Me !</span>{" "}:
+	</Counter>
+</div>
+```
+
+Render :
+
+<div className="mt-4 p-4 rounded border dark:border-neutral-800">
+	<Counter>
+		<span className="bg-blue-500 hover:bg-blue-600 transition-all duration-200 font-medium px-1.5 py-0.5 rounded text-sm">Click Me !</span>{" "}:
+	</Counter>
+</div>
 
 ## Heroicons
 

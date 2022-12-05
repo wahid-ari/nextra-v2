@@ -11,6 +11,10 @@
     "title": "Docs",
     "type": "page"
   },
+  "libs": {
+    "title": "Libs",
+    "type": "page"
+  },
   "features": {
     "title": "Features",
     "type": "page"

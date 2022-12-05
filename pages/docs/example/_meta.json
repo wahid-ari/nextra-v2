@@ -1,5 +1,8 @@
 {
   "template": "Template",
+  "---": {
+    "type": "separator"
+  },
   "get": "Get",
   "create": "Create",
   "create-formdata": "Create (Form Data)",

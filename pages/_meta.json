@@ -1,13 +1,15 @@
 {
-  "index": "Introduction",
-  "another": "Another Page",
-  "---": {
-    "type": "separator"
+  "index": {
+    "title": "Introduction",
+    "type": "page",
+    "display": "hidden",
+    "theme": {
+      "sidebar": false
+    }
   },
-  "advanced": "Advanced (A Folder)",
-  "-- Themes --": {
-    "type": "separator",
-    "title": "Themes"
+  "docs": {
+    "title": "Docs",
+    "type": "page"
   },
   "features": {
     "title": "Features",
@@ -22,7 +24,8 @@
   },
   "about": {
     "title": "About",
-    "type": "page"
+    "type": "page",
+    "display": "hidden"
   },
   "company": {
     "title": "Company",

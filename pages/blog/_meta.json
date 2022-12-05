@@ -1,4 +1,7 @@
 {
+  "*": {
+    "display": "hidden"
+  },
   "nextra": "Nextra Docs",
   "swr": "Announcing SWR"
 }

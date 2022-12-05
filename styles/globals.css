@@ -29,3 +29,7 @@ hr {
 li.nx-mt-5 {
 	@apply !my-1;
 }
+
+div.nextra-search {
+	@apply md:w-48;
+}

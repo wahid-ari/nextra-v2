@@ -1,4 +1,13 @@
 {
+  "index": "Introduction",
+  "-- Components Docs --": {
+    "type": "separator",
+    "title": "Components Docs"
+  },
   "components": "Components",
+  "-- API Docs --": {
+    "type": "separator",
+    "title": "API Docs"
+  },
   "example": "Example"
 }

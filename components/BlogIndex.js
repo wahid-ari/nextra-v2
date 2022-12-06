@@ -14,7 +14,7 @@ export default function BlogIndex({ more = "Read more" }) {
         </h3>
         <p className="opacity-80 !mt-0 pt-3">
           {page.frontMatter?.description}{" "}
-          <Link href={page.route} className="text-blue-500 hover:text-blue-600 transition-all">
+          <Link href={page.route} className="text-blue-500 hover:text-blue-600 hover:underline transition-all duration-300">
             {more + " ➔"}
           </Link>
         </p>
@@ -29,3 +29,24 @@ export default function BlogIndex({ more = "Read more" }) {
     );
   });
 }
+
+{/* <Link href={page.route} passHref key={index + 1}>
+  <div className="mt-8 mb-10 group">
+    <h3 className="text-2xl text-neutral-800 font-medium dark:text-white group-hover:text-blue-500 dark:group-hover:text-blue-500 transition-all duration-300">
+      {page.meta?.title || page.frontMatter?.title || page.name}
+    </h3>
+    <p className="opacity-80 !mt-0 pt-3">
+      {page.frontMatter?.description}{" "}
+      <Link href={page.route} className="text-blue-500 hover:text-blue-600 transition-all">
+        {more + " ➔"}
+      </Link>
+    </p>
+    {page.frontMatter?.date ? (
+      <p className="text-gray-600 dark:text-neutral-400 text-sm !mt-0 pt-3 flex items-center gap-1">
+        <CalendarDaysIcon className="h-5 w-5" />
+        {page.frontMatter.date}
+      </p>
+    ) : null}
+  </div>
+  {index + 1 < length && <hr className="border-t dark:border-neutral-800 mt-10" />}
+</Link> */}

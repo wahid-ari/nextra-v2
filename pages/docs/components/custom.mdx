@@ -6,6 +6,8 @@ import Alert from "@components/Alert";
 import AlertOutline from "@components/AlertOutline";
 import Accordion from "@components/Accordion";
 import Bleed from "@components/Bleed";
+import Tooltip from "@components/Tooltip";
+import Param from "@components/Param";
 import { Tab, Tabs } from 'nextra-theme-docs';
 import { OptionTable } from '@components/OptionTable';
 import { Tree, File, Folder } from '@components/FileTree';
@@ -59,6 +61,30 @@ import {
 import demo from "@public/demo.png";
 
 # Custom Component
+
+## Param
+
+Component to describe param
+
+<Param name="title" type="string" required={true} nameClasses="text-green-500 dark:text-green-400">Title in the Accordion preview.</Param>
+<Param name="description" type="boolean" required={true} optional={true} defaultValue="false" nameClasses="text-sky-500 dark:text-sky-400">Param description.</Param>
+
+## Tooltip
+
+Show a definition when you hover over text.
+
+```jsx filename="index.mdx" copy
+import Tooltip from "@components/Tooltip";
+
+<Tooltip tip="This is tooltip!">Hover me</Tooltip> and see a tooltip in action
+
+<Tooltip tip="This is tooltip!"><Badge>😂 Hover me</Badge></Tooltip> hover badge to show tooltip
+```
+
+<Tooltip tip="This is tooltip!">Hover me</Tooltip> and see a tooltip in action
+
+<Tooltip tip="This is tooltip!"><Badge>😂 Hover me</Badge></Tooltip> hover badge to show tooltip
+
 
 ## File Tree
 

@@ -66,6 +66,13 @@ import demo from "@public/demo.png";
 
 Component to describe param
 
+```jsx filename="index.mdx" copy
+import Param from "@components/Param";
+
+<Param name="title" type="string" required={true} nameClasses="text-green-500 dark:text-green-400">Title in the Accordion preview.</Param>
+<Param name="description" type="boolean" required={true} optional={true} defaultValue="false" nameClasses="text-sky-500 dark:text-sky-400">Param description.</Param>
+```
+
 <Param name="title" type="string" required={true} nameClasses="text-green-500 dark:text-green-400">Title in the Accordion preview.</Param>
 <Param name="description" type="boolean" required={true} optional={true} defaultValue="false" nameClasses="text-sky-500 dark:text-sky-400">Param description.</Param>
 

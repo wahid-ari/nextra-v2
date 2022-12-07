@@ -8,6 +8,7 @@ import Accordion from "@components/Accordion";
 import Bleed from "@components/Bleed";
 import Tooltip from "@components/Tooltip";
 import Param from "@components/Param";
+import Expandable from "@components/Expandable";
 import { Tab, Tabs } from 'nextra-theme-docs';
 import { OptionTable } from '@components/OptionTable';
 import { Tree, File, Folder } from '@components/FileTree';
@@ -61,6 +62,54 @@ import {
 import demo from "@public/demo.png";
 
 # Custom Component
+
+## Expandable
+
+```jsx filename="index.mdx" copy
+import Expandable from "@components/Expandable";
+
+<Expandable title="properties">
+	<Param name="variable_name" type="query" required>
+		Param description.
+	</Param>
+	<Param name="variable_name_3" type="body" optional={true}>
+		Param description.
+	</Param>
+</Expandable>
+```
+
+<Expandable title="properties">
+	<Param name="variable_name" type="query" required>
+		Param description.
+	</Param>
+	<Param name="variable_name_3" type="body" optional={true}>
+		Param description.
+	</Param>
+</Expandable>
+
+default open using `defaultOpen={true}` prop
+
+```jsx filename="index.mdx" copy
+import Expandable from "@components/Expandable";
+
+<Expandable title="properties" defaultOpen={true}>
+	<Param name="variable_name" type="query" required>
+		Param description.
+	</Param>
+	<Param name="variable_name_3" type="body" optional={true}>
+		Param description.
+	</Param>
+</Expandable>
+```
+
+<Expandable title="properties" defaultOpen={true}>
+	<Param name="variable_name" type="query" required>
+		Param description.
+	</Param>
+	<Param name="variable_name_3" type="body" optional={true}>
+		Param description.
+	</Param>
+</Expandable>
 
 ## Param
 

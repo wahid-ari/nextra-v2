@@ -5,6 +5,7 @@ import BadgeOutline from "@components/BadgeOutline";
 import Alert from "@components/Alert";
 import AlertOutline from "@components/AlertOutline";
 import Accordion from "@components/Accordion";
+import Bleed from "@components/Bleed";
 import { Tab, Tabs } from 'nextra-theme-docs';
 import { OptionTable } from '@components/OptionTable';
 import { Tree, File, Folder } from '@components/FileTree';
@@ -549,3 +550,51 @@ Render:
   tree.
 </Callout>
 </div>
+
+## Bleed
+
+When wrapping your content with `<Bleed>`, it will be slightly wider than the container
+and will overflow on both sides.
+
+```jsx
+import Bleed from "@components/Bleed";
+
+<Bleed>
+	<div style={{ border: "1px solid #888", padding: "4rem 2.5rem", textAlign: "center"}}>
+		_There is nothing to writing. All you do is sit down at a typewriter and **bleed**._ 
+		
+		— Ernest Hemingway
+
+	</div>
+</Bleed>;
+```
+
+Render:
+
+<Bleed>
+  <div style={{ border: '1px solid #888', padding: '4rem 2.5rem', textAlign: 'center' }}>
+    _There is nothing to writing. All you do is sit down at a typewriter and **bleed**._
+
+    — Ernest Hemingway
+
+  </div>
+</Bleed>
+
+It provides a better reading experience when you want to present some graphical information, which normally
+looks nicer in a larger size.
+
+For example you can put text, image, video or any component inside:
+
+```jsx
+import Bleed from "@components/Bleed";
+
+<Bleed>Hey, I can use **Markdown** syntax here.</Bleed>
+
+<Bleed>![Landscape](https://images.unsplash.com/photo-1644840379571-2a973eee0726?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80)</Bleed>
+```
+
+Render:
+
+<Bleed>Hey, I can use **Markdown** syntax here.</Bleed>
+
+<Bleed>![Landscape](https://images.unsplash.com/photo-1644840379571-2a973eee0726?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80)</Bleed>

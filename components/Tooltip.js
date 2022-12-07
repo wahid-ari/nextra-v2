@@ -7,7 +7,6 @@ export default function Tooltip({ tip, children }) {
   }
 
   const isText = isValidElement(children)
-  console.log(isText)
 
   return (
     <span className="group z-10 inline relative">

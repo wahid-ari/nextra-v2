@@ -1,0 +1,15 @@
+import ApiPlayground from "@components/ApiPlayground";
+
+#  API Playground 
+
+<ApiPlayground method="GET" endpoint="hello" param={true} paramName="message">
+	Tes GET endpoint `hello` with `message` as param
+</ApiPlayground>
+
+<ApiPlayground method="GET" endpoint="users/1">
+	Tes GET endpoint `users/1` that will return user data with `id 1`
+</ApiPlayground>
+
+<ApiPlayground method="GET" endpoint="users" param={true} paramName="id">
+	Tes GET endpoint `users` with `id` as param. If no `id` was specified it will return **all users data**
+</ApiPlayground>

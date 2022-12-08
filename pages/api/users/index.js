@@ -233,7 +233,22 @@ const users = [
 ]
 
 export default function handler(req, res) {
-  // res.setHeader('Content-Type', 'application/json')
-  res.status(200).send(JSON.stringify(users, null, 2));
-  // res.status(200).json(users)
+  const { id } = req.query
+  const filtered = users.filter(user => user.id == id)
+
+  if (id == undefined) {
+    res.status(200).send(JSON.stringify(users, null, 2));
+  } else {
+    if (id !== "") {
+      if (filtered.length > 0) {
+        res.status(200).send(JSON.stringify(filtered[0], null, 2));
+      }
+      else {
+        res.status(200).json({ id: id, error: "Not Found" })
+      }
+    } else {
+      res.status(200).send(JSON.stringify(users, null, 2));
+    }
+  }
+
 }

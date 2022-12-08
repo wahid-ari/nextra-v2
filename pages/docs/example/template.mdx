@@ -1,27 +1,18 @@
 import Badge from "@components/Badge";
 import BadgeOutline from "@components/BadgeOutline";
-import ApiPlayground from "@components/ApiPlayground";
 
 # Template
 
 ## Description
 
-## API Playground 
-
-<ApiPlayground method="GET" endpoint="hello" param={true} paramName="message">
-	Tes GET endpoint `hello` with `message` as param
-</ApiPlayground>
-
-<ApiPlayground method="GET" endpoint="users/1" />
-
 ### GET
 
-To <span className="text-blue-500 font-semibold">GET</span> the data in the specified collection. If no parameters are passed, it lists all of them.
+To <span className="text-green-500 font-semibold">GET</span> the data in the specified collection. If no parameters are passed, it lists all of them.
 Otherwise, it lists the documents in the collection matching the specified parameters.
 
 ### CREATE
 
-To <span className="text-green-500 font-semibold">CREATE</span> the data in the specified collection with the specified parameters.
+To <span className="text-blue-500 font-semibold">CREATE</span> the data in the specified collection with the specified parameters.
 When a JSON or Form Data object is saved, the object properties are automatically added to the collection you specified.
 
 ### PUT (Update)
@@ -37,8 +28,8 @@ or other specified parameters
 ## Method
 
 **Method :** 
-<Badge>GET</Badge>
-<Badge variant="success">POST</Badge>
+<Badge variant="success">GET</Badge>
+<Badge>POST</Badge>
 <Badge variant="info">PUT</Badge>
 <Badge variant="danger">DELETE</Badge>
 

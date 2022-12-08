@@ -3,7 +3,7 @@ import axios from "axios";
 import formatHighlight from 'json-format-highlight';
 
 function MethodBadge(method) {
-  if (method == "GET") {
+  if (method == "POST") {
     return (
 
       <div className="font-medium px-1.5 text-blue-600 bg-blue-200 border border-blue-500  rounded-lg">
@@ -11,7 +11,7 @@ function MethodBadge(method) {
       </div>
     )
   }
-  if (method == "POST") {
+  if (method == "GET") {
     return (
 
       <div className="font-medium px-1.5 text-green-600 bg-green-200 border border-green-500 rounded-lg">
@@ -44,12 +44,13 @@ export default function ApiPlayground({ method, endpoint, children, param = fals
     setLoading(true)
     setFetched(false)
     try {
-      const res = await axios.get(`${process.env.API_URL}/api/${endpoint}`, { params: { message: value } })
+      const res = await axios.get(`${process.env.API_URL}/api/${endpoint}`, { params: { [paramName]: value } })
       setData(res.data)
-      setFetched(true)
     } catch (error) {
+      setData(error.response.data)
       console.error(error)
     } finally {
+      setFetched(true)
       setLoading(false)
     }
   }
@@ -67,13 +68,23 @@ export default function ApiPlayground({ method, endpoint, children, param = fals
     <div className="border dark:border-neutral-800 p-4 rounded-md mt-8">
       <div className={`flex items-center gap-4 ${param ? "-mb-2" : "mb-4"}`}>
         {MethodBadge(methodUpperCase)}
-        <p className="font-medium text-neutral-700 dark:text-neutral-200 m-0">/api/{endpoint}</p>
+        <a
+          href={`${process.env.API_URL}/api/${endpoint}`}
+          target="_blank"
+          className="font-medium text-neutral-700 dark:text-neutral-200 m-0 hover:underline transition-all duration-200">
+          /api/{endpoint}
+        </a>
       </div>
 
       {param ?
-        <div className="flex flex-wrap gap-3 items-center -mb-2 mt-6">
-          <p className="font-medium text-neutral-700 dark:text-neutral-200 m-0">{paramName}</p>
-          <input onChange={(e) => setValue(e.target.value)} type="text" className="bg-[#f7f7f7] border border-neutral-300 dark:border-neutral-700 dark:bg-[#111] py-0.5 px-2 rounded-md" />
+        <div className=" -mb-2 mt-6">
+          <div className="border-b dark:border-b-neutral-800 mb-5">
+            <button className="pb-2 text-sm text-green-600 font-medium border-b-2 border-b-green-600">Query</button>
+          </div>
+          <div className="flex flex-wrap gap-3 items-center">
+            <p className="font-medium text-neutral-700 dark:text-neutral-200 m-0">{paramName}</p>
+            <input onChange={(e) => setValue(e.target.value)} type="text" className="bg-[#f7f7f7] border border-neutral-300 dark:border-neutral-700 dark:bg-[#111] py-0.5 px-2 rounded-md" />
+          </div>
         </div>
         : null
       }
@@ -86,7 +97,7 @@ export default function ApiPlayground({ method, endpoint, children, param = fals
       </button>
 
       {fetched ?
-        <div className="Code border-t dark:border-t-neutral-800 mt-4">
+        <div className="Code border-t dark:border-t-neutral-800 mt-5">
           <pre className="pt-3">
             <div dangerouslySetInnerHTML={{ __html: formatHighlight(data, colorOptions) }}>
             </div>

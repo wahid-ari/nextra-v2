@@ -8,8 +8,8 @@ import ApiPlayground from "@components/ApiPlayground";
 
 ## API Playground 
 
-<ApiPlayground method="GET" endpoint="hello">
-	Tes Get endpoint `hello`
+<ApiPlayground method="GET" endpoint="hello" param={true} paramName="message">
+	Tes GET endpoint `hello` with `message` as param
 </ApiPlayground>
 
 <ApiPlayground method="GET" endpoint="users/1" />

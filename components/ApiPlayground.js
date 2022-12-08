@@ -2,16 +2,49 @@ import { useState } from "react";
 import axios from "axios";
 import formatHighlight from 'json-format-highlight';
 
-export default function ApiPlayground({ method, endpoint, children }) {
+function MethodBadge(method) {
+  if (method == "GET") {
+    return (
+
+      <div className="font-medium px-1.5 text-blue-600 bg-blue-200 border border-blue-500  rounded-lg">
+        {method}
+      </div>
+    )
+  }
+  if (method == "POST") {
+    return (
+
+      <div className="font-medium px-1.5 text-green-600 bg-green-200 border border-green-500 rounded-lg">
+        {method}
+      </div>
+    )
+  }
+  if(method == "PUT") {
+    return (
+      <div className="font-medium px-1.5 text-orange-600 bg-orange-200 border border-orange-500 rounded-lg">
+        {method}
+      </div>
+    )
+  }
+  return (
+    <div className="font-medium px-1.5 text-red-600 bg-red-200 border border-red-500 rounded-lg">
+      {method}
+    </div>
+  )
+}
+
+export default function ApiPlayground({ method, endpoint, children, param = false, paramName = "Param" }) {
   const [fetched, setFetched] = useState(false)
   const [data, setData] = useState()
   const [loading, setLoading] = useState(false)
+  const [value, setValue] = useState("")
+  const methodUpperCase = method.toUpperCase()
 
   async function handleFetch() {
     setLoading(true)
     setFetched(false)
     try {
-      const res = await axios.get(`${process.env.API_URL}/api/${endpoint}`)
+      const res = await axios.get(`${process.env.API_URL}/api/${endpoint}?message=${value}`)
       setData(res.data)
       setFetched(true)
     } catch (error) {
@@ -32,12 +65,18 @@ export default function ApiPlayground({ method, endpoint, children }) {
 
   return (
     <div className="border dark:border-neutral-800 p-4 rounded-md mt-8">
-      <div className="flex items-center gap-4 -mb-2">
-        <div className="font-medium px-1.5 text-green-600 bg-green-200 border border-green-500 rounded-lg">
-          {method}
-        </div>
-        <p className="font-medium text-neutral-700 dark:text-neutral-200 m-0">{process.env.API_URL}/api/{endpoint}</p>
+      <div className={`flex items-center gap-4 ${param ? "-mb-2" : "mb-4"}`}>
+        {MethodBadge(methodUpperCase)}
+        <p className="font-medium text-neutral-700 dark:text-neutral-200 m-0">/api/{endpoint}</p>
       </div>
+
+      {param ?
+        <div className="flex flex-wrap gap-3 items-center -mb-2 mt-6">
+          <p className="font-medium text-neutral-700 dark:text-neutral-200 m-0">{paramName}</p>
+          <input onChange={(e) => setValue(e.target.value)} type="text" className="bg-[#f7f7f7] border border-neutral-300 dark:border-neutral-700 dark:bg-[#111] py-0.5 px-2 rounded-md" />
+        </div>
+        : null
+      }
 
       {children}
 

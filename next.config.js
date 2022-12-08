@@ -5,8 +5,8 @@ const withNextra = require('nextra')({
 
 const nextConfig = {
   env: {
-    API_URL: "http://localhost:3000",
-    // API_URL: "https://next-dataa.vercel.app",
+    // API_URL: "http://localhost:3000",
+    API_URL: "https://nextra-v2x.vercel.app",
   }
 };
 

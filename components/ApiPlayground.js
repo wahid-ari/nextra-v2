@@ -19,7 +19,7 @@ function MethodBadge(method) {
       </div>
     )
   }
-  if(method == "PUT") {
+  if (method == "PUT") {
     return (
       <div className="font-medium px-1.5 text-orange-600 bg-orange-200 border border-orange-500 rounded-lg">
         {method}
@@ -44,7 +44,8 @@ export default function ApiPlayground({ method, endpoint, children, param = fals
     setLoading(true)
     setFetched(false)
     try {
-      const res = await axios.get(`${process.env.API_URL}/api/${endpoint}?message=${value}`)
+      // const res = await axios.get(`${process.env.API_URL}/api/${endpoint}?message=${value}`)
+      const res = await axios.get(`${process.env.API_URL}/api/${endpoint}`, { param: { message: value } })
       setData(res.data)
       setFetched(true)
     } catch (error) {

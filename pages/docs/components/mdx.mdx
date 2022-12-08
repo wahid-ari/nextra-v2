@@ -156,6 +156,14 @@ www.example.com, https://example.com, and contact@example.com.
 
 [Index](/), it's an internal link
 
+You can optionally add a title for a link. This will appear as a tooltip when the user hovers over the link. To add a title, enclose it in quotation marks after the URL.
+
+```markdown filename="index.mdx" copy
+[MDX](https://mdxjs.com/about "MDX Documentation"), Documentation
+```
+
+[MDX](https://mdxjs.com/about "MDX Documentation"), Documentation
+
 ## List
 
 ```markdown filename="index.mdx" copy
@@ -169,6 +177,22 @@ www.example.com, https://example.com, and contact@example.com.
 3. three
 
 ```markdown filename="index.mdx" copy
+1. First item
+2. Second item
+3. Third item
+    1. Indented item
+    2. Indented item
+4. Fourth item
+```
+
+1. First item
+2. Second item
+3. Third item
+    1. Indented item
+    2. Indented item
+4. Fourth item
+
+```markdown filename="index.mdx" copy
 - one
 - two
 - three
@@ -177,6 +201,38 @@ www.example.com, https://example.com, and contact@example.com.
 - one
 - two
 - three
+
+```markdown filename="index.mdx" copy
+- First item
+- Second item
+- Third item
+    - Indented item
+    - Indented item
+- Fourth item
+```
+
+- First item
+- Second item
+- Third item
+    - Indented item
+    - Indented item
+- Fourth item
+
+```markdown filename="index.mdx" copy
+1. First item
+2. Second item
+3. Third item
+    - Indented item
+    - Indented item
+4. Fourth item
+```
+
+1. First item
+2. Second item
+3. Third item
+    - Indented item
+    - Indented item
+4. Fourth item
 
 ```markdown filename="index.mdx" copy
 * asterisks for unordered items
@@ -532,6 +588,18 @@ Renders:
 
 A note[^1]
 
+Here's a simple footnote,[^2] and here's a longer one.[^bignote]
+
 ---
 
 [^1]: Big note.
+
+[^2]: This is the simple footnote.
+
+[^bignote]: Here's one with multiple paragraphs and code.
+
+    Indent paragraphs to include them in the footnote.
+
+    `{ my code }`
+
+    Add as many paragraphs as you like.

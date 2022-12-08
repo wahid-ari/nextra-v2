@@ -26,6 +26,9 @@ hr {
 	@apply border-neutral-200 dark:border-neutral-800 !important;
 }
 
+/* Separator */
+/* https://nextra.site/docs/docs-theme/theme-configuration#customize-sidebar-content */
+/* https://nextra.site/docs/docs-theme/page-configuration#separators */
 li.nx-mt-5 {
 	@apply !my-1;
 }
@@ -36,6 +39,19 @@ div.nextra-search {
 
 footer > div.nx-py-12 {
 	@apply py-8;
+}
+
+/* Pagination  */
+a.nx-flex.nx-items-center.nx-gap-1.nx-py-4.nx-text-base.nx-font-medium.nx-text-gray-600.nx-transition-colors {
+	@apply text-base;
+}
+
+svg.nx-inline.nx-h-5.nx-shrink-0.ltr\:nx-rotate-180 {
+	@apply h-4 w-4;
+}
+
+svg.nx-inline.nx-h-5.nx-shrink-0.rtl\:nx-rotate-180 {
+	@apply h-4 w-4;
 }
 
 .steps-container {

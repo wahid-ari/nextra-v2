@@ -3,4 +3,11 @@ const withNextra = require('nextra')({
   themeConfig: './theme.config.js',
 })
 
-module.exports = withNextra()
+const nextConfig = {
+  env: {
+    API_URL: "http://localhost:3000",
+    // API_URL: "https://next-dataa.vercel.app",
+  }
+};
+
+module.exports = withNextra(nextConfig)

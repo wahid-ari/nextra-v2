@@ -1,6 +1,14 @@
 import ApiPlayground from "@components/ApiPlayground";
+import Alert from "@components/Alert";
+import { MethodTable } from '@components/OptionTable';
 
 #  API Playground 
+
+Enable users interact with your API
+
+## Introduction
+
+The API playground lets you create an interactive environment to make requests and preview your API endpoints.
 
 <ApiPlayground method="GET" endpoint="hello" param={true} paramName="message">
 	Tes GET endpoint `hello` with `message` as param
@@ -13,3 +21,26 @@ import ApiPlayground from "@components/ApiPlayground";
 <ApiPlayground method="GET" endpoint="users" param={true} paramName="id">
 	Tes GET endpoint `users` with `id` as param. If no `id` was specified it will return **all users data**
 </ApiPlayground>
+
+## Method
+
+Can be any one of the following REST API methods
+
+<MethodTable options={[
+  ['GET', 'Retrieve information about the REST API resource'],
+  ['POST', 'Create a REST API resource'],
+  ['PUT', 'Update a REST API resource'],
+  ['PATCH', 'Update a REST API resource'],
+  ['DELETE', 'Delete a REST API resource or related component'],
+]}/>
+
+## Endpoint
+The endpoint should point to the API that the playground should call. For example, it can be something like
+
+```markdown
+https://api.example.com/v1/endpoint
+```
+
+<Alert variant="success">
+If you have baseUrl configured in **mint.json**, you can use relative paths like **/v1/endpoint**.
+</Alert>

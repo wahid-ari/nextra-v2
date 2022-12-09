@@ -41,6 +41,21 @@ footer > div.nx-py-12 {
 	@apply py-8;
 }
 
+/* Sidemenu */
+aside > div > ul > li:not(.active) > a {
+	@apply dark:text-neutral-400;
+}
+
+/* Sidemenu item*/
+aside > div > ul > li > div.nx-transform-gpu > div.nx-transform-gpu > ul > li:not(.active) > a {
+	@apply dark:text-neutral-400;
+}
+
+/* Menu item mobile*/
+li.open > div.nx-transform-gpu > div.nx-transform-gpu > ul > li:not(.active) > a {
+	@apply dark:text-neutral-400;
+}
+
 /* Pagination  */
 a.nx-flex.nx-items-center.nx-gap-1.nx-py-4.nx-text-base.nx-font-medium.nx-text-gray-600.nx-transition-colors {
 	@apply text-base;

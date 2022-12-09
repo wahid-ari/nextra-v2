@@ -47,7 +47,7 @@ export default function ApiPlayground({ method, endpoint, children, param = fals
       const res = await axios.get(`${process.env.API_URL}/api/${endpoint}`, { params: { [paramName]: value } })
       setData(res.data)
     } catch (error) {
-      setData(error.response.data)
+      setData(error.response?.data)
       console.error(error)
     } finally {
       setFetched(true)

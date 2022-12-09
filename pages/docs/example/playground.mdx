@@ -1,4 +1,5 @@
 import ApiPlayground from "@components/ApiPlayground";
+import CodeGroup from "@components/CodeGroup";
 import Alert from "@components/Alert";
 import { MethodTable } from '@components/OptionTable';
 
@@ -47,6 +48,94 @@ The API playground lets you create an interactive environment to make requests a
 <ApiPlayground method="DELETE" endpoint="users/1">
 	Tes DELETE to endpoint `users`
 </ApiPlayground>
+
+## Request / Response
+
+```jsx filename="index.mdx" copy
+import Expandable from "@components/Expandable";
+
+<Expandable title="properties">
+	<Param name="variable_name" type="query" required>
+		Param description.
+	</Param>
+	<Param name="variable_name_3" type="body" optional={true}>
+		Param description.
+	</Param>
+</Expandable>
+```
+
+<CodeGroup items={["Request", "Response"]}>
+	<CodeGroup.Item>
+	```shell copy
+	curl --request GET \
+  --url https://api.vessel.land/crm/leads \
+  --header 'Content-Type: application/json' \
+  --header 'vessel-api-token: '
+	```
+	</CodeGroup.Item>
+	<CodeGroup.Item>
+	```json copy
+	{
+    "id": "573de1b49555e84fccd76c47f8bac0a2",
+    "nativeId": "23",
+    "firstName": "Tom",
+    "lastName": "Smith",
+    "jobTitle": "Director of Operations",
+    "email": "tom@bluecross.com",
+    "account": "Blue Cross",
+    "phone": "1234445555",
+    "associations": {
+      "contactIds": [
+        "3e530bfc11fdb21bbc8d28dd6dde491a"
+      ]
+    },
+    "additional": {}
+  }
+	```
+	</CodeGroup.Item>
+</CodeGroup>
+
+<CodeGroup items={["Shell", "Javascript", "Python"]}>
+	<CodeGroup.Item>
+	```shell copy
+	curl --request GET \
+		--url https://api.vessel.land/connection/crm/integrations \
+		--header 'Content-Type: application/json'
+	```
+	</CodeGroup.Item>
+	<CodeGroup.Item>
+	```jsx copy
+	fetch('https://api.vessel.land/connection/crm/integrations', {
+		method: 'GET',
+		headers: {
+			'Content-Type': 'application/json',
+		},
+	})
+	.then((response) => {
+		console.log(response);
+	})
+	.catch((err) => {
+		console.error(err);
+	});
+	```
+	</CodeGroup.Item>
+	<CodeGroup.Item>
+	```python copy
+	import http.client
+
+	conn = http.client.HTTPSConnection("api.vessel.land")
+
+	headers = { 'Content-Type': "application/json" }
+
+	conn.request("GET", "/connection/crm/integrations", headers=headers)
+
+	res = conn.getresponse()
+	data = res.read()
+
+	print(data.decode("utf-8"))
+	```
+	</CodeGroup.Item>
+</CodeGroup>
 
 ## Method
 

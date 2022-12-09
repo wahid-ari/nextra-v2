@@ -9,6 +9,7 @@ import Bleed from "@components/Bleed";
 import Tooltip from "@components/Tooltip";
 import Param from "@components/Param";
 import Expandable from "@components/Expandable";
+import CodeGroup from "@components/CodeGroup";
 import { Tab, Tabs } from 'nextra-theme-docs';
 import { OptionTable } from '@components/OptionTable';
 import { Tree, File, Folder } from '@components/FileTree';
@@ -62,6 +63,79 @@ import {
 import demo from "@public/demo.png";
 
 # Custom Component
+
+<CodeGroup items={["Request", "Response"]}>
+	<CodeGroup.Item>
+	```shell copy
+	curl --request GET \
+  --url https://api.vessel.land/crm/leads \
+  --header 'Content-Type: application/json' \
+  --header 'vessel-api-token: '
+	```
+	</CodeGroup.Item>
+	<CodeGroup.Item>
+	```json copy
+	{
+    "id": "573de1b49555e84fccd76c47f8bac0a2",
+    "nativeId": "23",
+    "firstName": "Tom",
+    "lastName": "Smith",
+    "jobTitle": "Director of Operations",
+    "email": "tom@bluecross.com",
+    "account": "Blue Cross",
+    "phone": "1234445555",
+    "associations": {
+      "contactIds": [
+        "3e530bfc11fdb21bbc8d28dd6dde491a"
+      ]
+    },
+    "additional": {}
+  }
+	```
+	</CodeGroup.Item>
+</CodeGroup>
+
+<CodeGroup items={["Shell / cURL", "Fetch", "Python"]} accentColor="border-b-blue-500">
+	<CodeGroup.Item>
+	```shell copy
+	curl --request GET \
+		--url https://api.vessel.land/connection/crm/integrations \
+		--header 'Content-Type: application/json'
+	```
+	</CodeGroup.Item>
+	<CodeGroup.Item>
+	```jsx copy
+	fetch('https://api.vessel.land/connection/crm/integrations', {
+		method: 'GET',
+		headers: {
+			'Content-Type': 'application/json',
+		},
+	})
+	.then((response) => {
+		console.log(response);
+	})
+	.catch((err) => {
+		console.error(err);
+	});
+	```
+	</CodeGroup.Item>
+	<CodeGroup.Item>
+	```python copy
+	import http.client
+
+	conn = http.client.HTTPSConnection("api.vessel.land")
+
+	headers = { 'Content-Type': "application/json" }
+
+	conn.request("GET", "/connection/crm/integrations", headers=headers)
+
+	res = conn.getresponse()
+	data = res.read()
+
+	print(data.decode("utf-8"))
+	```
+	</CodeGroup.Item>
+</CodeGroup>
 
 ## Expandable
 

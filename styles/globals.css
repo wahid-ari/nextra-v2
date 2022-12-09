@@ -56,6 +56,16 @@ li.open > div.nx-transform-gpu > div.nx-transform-gpu > ul > li:not(.active) > a
 	@apply dark:text-neutral-400;
 }
 
+/* Request Response code */
+div.req-res > div.rounded-b-xl > div > div > pre {
+	@apply rounded-t-none;
+}
+
+/* Code block filename  */
+div[data-rehype-pretty-code-fragment] > div {
+	@apply font-medium text-[13px];
+}
+
 /* Pagination  */
 a.nx-flex.nx-items-center.nx-gap-1.nx-py-4.nx-text-base.nx-font-medium.nx-text-gray-600.nx-transition-colors {
 	@apply text-base;

@@ -10,6 +10,8 @@ Enable users interact with your API
 
 The API playground lets you create an interactive environment to make requests and preview your API endpoints.
 
+## GET
+
 <ApiPlayground method="GET" endpoint="hello" param={true} paramName="message">
 	Tes GET endpoint `hello` with `message` as param
 </ApiPlayground>
@@ -20,6 +22,30 @@ The API playground lets you create an interactive environment to make requests a
 
 <ApiPlayground method="GET" endpoint="users" param={true} paramName="id">
 	Tes GET endpoint `users` with `id` as param. If no `id` was specified it will return **all users data**
+</ApiPlayground>
+
+## POST
+
+<ApiPlayground method="POST" endpoint="users">
+	Tes POST to endpoint `users`
+</ApiPlayground>
+
+## PUT
+
+<ApiPlayground method="PUT" endpoint="users">
+	Tes PUT to endpoint `users`
+</ApiPlayground>
+
+## PATCH
+
+<ApiPlayground method="PATCH" endpoint="users">
+	Tes PATCH to endpoint `users`
+</ApiPlayground>
+
+## DELETE
+
+<ApiPlayground method="DELETE" endpoint="users/1">
+	Tes DELETE to endpoint `users`
 </ApiPlayground>
 
 ## Method
@@ -42,5 +68,5 @@ https://api.example.com/v1/endpoint
 ```
 
 <Alert variant="success">
-If you have baseUrl configured in **mint.json**, you can use relative paths like **/v1/endpoint**.
+If you have baseUrl configured in **next.config.js**, you can use relative paths like **\{baseUrl\}/v1/endpoint**.
 </Alert>

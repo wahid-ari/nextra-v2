@@ -127,6 +127,62 @@ The API playground lets you create an interactive environment to make requests a
 	</CodeGroup.Item>
 </CodeGroup>
 
+<CodeGroup items={["200", "400", "401", "402", "403", "500"]}>
+	<CodeGroup.Item>
+	```json copy
+	{
+		"id": "72be9d5c-f7c7-4d53-bafc-8846232ee02b",
+		"utility": {
+			"id": 1,
+			"full_name": "Pacific Gas & Electricity"
+		},
+		"utility_username": "user@pelm.com",
+		"credentials_valid": true
+  }
+	```
+	</CodeGroup.Item>
+	<CodeGroup.Item>
+	```json copy
+	{
+		"error_code": "parameter_invalid",
+		"message": "User with id does not exist"
+	}
+	```
+	</CodeGroup.Item>
+	<CodeGroup.Item>
+	```json copy
+	{
+		"error_code": "token_invalid",
+		"message": "Must provide access token"
+	}
+	```
+	</CodeGroup.Item>
+	<CodeGroup.Item>
+	```json copy
+	{
+		"error_code": "quota_reached",
+		"message": "You have reach your plan's quota for this billing period. Please email info@pelm.com to upgrade your plan."
+	}
+	```
+	</CodeGroup.Item>
+	<CodeGroup.Item>
+	```json copy
+	{
+		"error_code": "permission_denied",
+		"message": "Permission denied."
+	}
+	```
+	</CodeGroup.Item>
+	<CodeGroup.Item>
+	```json copy
+	{
+		"error_code": "internal_error",
+		"message": "Something went wrong. Please try again."
+	}
+	```
+	</CodeGroup.Item>
+</CodeGroup>
+
 ## Method
 
 Can be any one of the following REST API methods

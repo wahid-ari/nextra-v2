@@ -51,49 +51,7 @@ The API playground lets you create an interactive environment to make requests a
 
 ## Request / Response
 
-```jsx filename="index.mdx" copy
-import Expandable from "@components/Expandable";
-
-<Expandable title="properties">
-	<Param name="variable_name" type="query" required>
-		Param description.
-	</Param>
-	<Param name="variable_name_3" type="body" optional={true}>
-		Param description.
-	</Param>
-</Expandable>
-```
-
-<CodeGroup items={["Request", "Response"]}>
-	<CodeGroup.Item>
-	```shell copy
-	curl --request GET \
-  --url https://api.vessel.land/crm/leads \
-  --header 'Content-Type: application/json' \
-  --header 'vessel-api-token: '
-	```
-	</CodeGroup.Item>
-	<CodeGroup.Item>
-	```json copy
-	{
-    "id": "573de1b49555e84fccd76c47f8bac0a2",
-    "nativeId": "23",
-    "firstName": "Tom",
-    "lastName": "Smith",
-    "jobTitle": "Director of Operations",
-    "email": "tom@bluecross.com",
-    "account": "Blue Cross",
-    "phone": "1234445555",
-    "associations": {
-      "contactIds": [
-        "3e530bfc11fdb21bbc8d28dd6dde491a"
-      ]
-    },
-    "additional": {}
-  }
-	```
-	</CodeGroup.Item>
-</CodeGroup>
+### Request
 
 <CodeGroup items={["Shell", "Javascript", "Python"]}>
 	<CodeGroup.Item>
@@ -133,6 +91,38 @@ import Expandable from "@components/Expandable";
 	data = res.read()
 
 	print(data.decode("utf-8"))
+	```
+	</CodeGroup.Item>
+</CodeGroup>
+
+### Response 
+
+<CodeGroup items={["Success", "Error"]}>
+	<CodeGroup.Item>
+	```json copy
+	{
+		"id": "573de1b49555e84fccd76c47f8bac0a2",
+		"nativeId": "23",
+		"firstName": "Tom",
+		"lastName": "Smith",
+		"jobTitle": "Director of Operations",
+		"email": "tom@bluecross.com",
+		"account": "Blue Cross",
+		"phone": "1234445555",
+		"associations": {
+			"contactIds": [
+				"3e530bfc11fdb21bbc8d28dd6dde491a"
+			]
+		},
+		"additional": {}
+  }
+	```
+	</CodeGroup.Item>
+	<CodeGroup.Item>
+	```json copy
+	{
+		"message": "Missing API token in header key \"vessel-api-token\""
+	}
 	```
 	</CodeGroup.Item>
 </CodeGroup>

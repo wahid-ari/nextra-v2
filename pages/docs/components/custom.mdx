@@ -10,6 +10,7 @@ import Tooltip from "@components/Tooltip";
 import Param from "@components/Param";
 import Expandable from "@components/Expandable";
 import CodeGroup from "@components/CodeGroup";
+import Hint from "@components/Hint";
 import { Tab, Tabs } from 'nextra-theme-docs';
 import { OptionTable } from '@components/OptionTable';
 import { Tree, File, Folder } from '@components/FileTree';
@@ -472,6 +473,48 @@ Render:<br/><br/>
 	<BadgeOutline variant="danger">Danger</BadgeOutline>
 	<BadgeOutline variant="dark">Dark</BadgeOutline>
 </div>
+
+## Hint
+
+```jsx filename="index.mdx" copy
+import Hint from "@components/Hint";
+
+<Hint className="mb-4">
+	**Info**\
+	info
+</Hint>
+
+<Hint.success className="mb-4">
+	**Success** success
+</Hint.success>
+
+<Hint.warning className="mb-4">
+	**Warning** warning
+</Hint.warning>
+
+<Hint.danger className="mb-4">
+	**Danger** danger
+</Hint.danger>
+```
+
+Render:<br/><br/>
+
+<Hint className="mb-4">
+	**Info**\
+	info
+</Hint>
+
+<Hint.success className="mb-4">
+	**Success** success
+</Hint.success>
+
+<Hint.warning className="mb-4">
+	**Warning** warning
+</Hint.warning>
+
+<Hint.danger className="mb-4">
+	**Danger** danger
+</Hint.danger>
 
 ## Alert
 

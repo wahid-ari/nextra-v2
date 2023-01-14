@@ -6,7 +6,7 @@ import { AnimateSharedLayout, motion } from "framer-motion";
 export default function CodeGroup({ items, children }) {
   return (
     <Tab.Group as="div" className="req-res my-4">
-      <Tab.List className="flex items-center relative bg-blue-100/70 dark:bg-gray-700/75 rounded-t-xl" >
+      <Tab.List className="flex items-center relative bg-blue-100/70 dark:bg-gray-700/75 rounded-t-xl overflow-auto">
         <AnimateSharedLayout>
           {items.map((item, index) => (
             <Tab key={index + 1} as="div" className="group rounded">

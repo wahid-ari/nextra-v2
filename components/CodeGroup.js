@@ -6,12 +6,13 @@ import { AnimateSharedLayout, motion } from "framer-motion";
 export default function CodeGroup({ items, children }) {
   return (
     <Tab.Group as="div" className="req-res my-4">
-      <Tab.List className="flex items-center relative bg-blue-100/70 dark:bg-gray-700/75 rounded-t-xl overflow-auto">
+      <Tab.List className="flex items-center relative bg-blue-100/70 dark:bg-neutral-800/75 rounded-t overflow-auto">
         <AnimateSharedLayout>
           {items.map((item, index) => (
-            <Tab key={index + 1} as="div" className="group rounded">
+            <Tab key={index + 1} as="div" className="group rounded focus-visible:!outline-none focus-visible:!ring-0 focus-visible:!ring-offset-0">
               {({ selected }) => (
-                <button className={clsx("relative px-4 py-2 text-[13px] font-medium transition-all duration-200",
+                <button className={clsx("relative px-4 py-1 my-0.5 mx-0.5 text-[13px] font-medium transition-all duration-200",
+                  "focus-visible:outline-none focus-visible:ring-0 focus-visible:border-none",
                   selected ? "text-neutral-800 dark:text-neutral-100" : "text-neutral-600 hover:text-neutral-800 dark:text-neutral-300 dark:hover:text-neutral-100",
                 )}>
                   {item}
@@ -37,7 +38,7 @@ export default function CodeGroup({ items, children }) {
 
 CodeGroup.Item = ({ children, className }) => {
   return (
-    <Tab.Panel className={className}>
+    <Tab.Panel className={"focus-visible:!outline-none focus-visible:!ring-0 focus-visible:!ring-offset-0 " + className}>
       {children}
     </Tab.Panel>
   )

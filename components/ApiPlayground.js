@@ -4,36 +4,14 @@ import axios from "axios";
 import formatHighlight from 'json-format-highlight';
 
 function MethodBadge(method) {
-  if (method == "POST") {
-    return (
-      <div className="font-medium px-1.5 text-blue-600 bg-blue-200 border border-blue-500  rounded-lg">
-        {method}
-      </div>
-    )
-  }
-  if (method == "GET") {
-    return (
-      <div className="font-medium px-1.5 text-green-600 bg-green-200 border border-green-500 rounded-lg">
-        {method}
-      </div>
-    )
-  }
-  if (method == "PUT") {
-    return (
-      <div className="font-medium px-1.5 text-orange-600 bg-orange-200 border border-orange-500 rounded-lg">
-        {method}
-      </div>
-    )
-  }
-  if (method == "PATCH") {
-    return (
-      <div className="font-medium px-1.5 text-yellow-500 bg-yellow-200 border border-yellow-500 rounded-lg">
-        {method}
-      </div>
-    )
-  }
+  let color = 'text-red-600 bg-red-200 border border-red-500'
+  if (method == "POST") color = 'text-blue-600 bg-blue-200 border border-blue-500'
+  if (method == "GET") color = 'text-green-600 bg-green-200 border border-green-500'
+  if (method == "PUT") color = 'text-orange-600 bg-orange-200 border border-orange-500'
+  if (method == "PATCH") color = 'text-yellow-500 bg-yellow-200 border border-yellow-500'
+
   return (
-    <div className="font-medium px-1.5 text-red-600 bg-red-200 border border-red-500 rounded-lg">
+    <div className={`font-medium px-1.5 rounded-lg ${color}`}>
       {method}
     </div>
   )
@@ -72,6 +50,7 @@ export default function ApiPlayground({ method, endpoint, children, param = fals
 
   return (
     <div className="border dark:border-neutral-800 p-4 rounded-md mt-8">
+
       <div className={`flex items-center gap-4 ${param ? "-mb-2" : "mb-4"}`}>
         {MethodBadge(methodUpperCase)}
         <a
@@ -83,7 +62,7 @@ export default function ApiPlayground({ method, endpoint, children, param = fals
       </div>
 
       {param ?
-        <div className=" -mb-2 mt-6">
+        <div className="-mb-2 mt-6">
           <div className="border-b dark:border-b-neutral-800 mb-5">
             <button className="pb-2 text-sm text-green-600 font-medium border-b-2 border-b-green-600">Query</button>
           </div>
@@ -97,16 +76,19 @@ export default function ApiPlayground({ method, endpoint, children, param = fals
 
       {children}
 
-      <button onClick={handleFetch} className={cn(`flex items-center gap-2 ${children !== undefined ? "mt-4" : "mt-8"}`,
-        "text-sm font-medium px-2.5 py-1 transition-all duration-300 text-white rounded",
-        `${methodUpperCase == "GET" ? "bg-green-600 hover:bg-green-700" : ""}`,
-        `${methodUpperCase == "POST" ? "bg-blue-600 hover:bg-blue-700" : ""}`,
-        `${methodUpperCase == "PUT" ? "bg-orange-600 hover:bg-orange-700" : ""}`,
-        `${methodUpperCase == "PATCH" ? "bg-yellow-500 hover:bg-yellow-600" : ""}`,
-        `${methodUpperCase == "DELETE" ? "bg-red-600 hover:bg-red-700" : ""}`,
+      <button onClick={handleFetch} className={cn('flex items-center gap-2 text-sm font-medium px-2.5 py-1',
+        "transition-all duration-300 text-white rounded",
+        children !== undefined ? "mt-4" : "mt-8",
+        methodUpperCase == "GET" ? "bg-green-600 hover:bg-green-700" : "",
+        methodUpperCase == "POST" ? "bg-blue-600 hover:bg-blue-700" : "",
+        methodUpperCase == "PUT" ? "bg-orange-600 hover:bg-orange-700" : "",
+        methodUpperCase == "PATCH" ? "bg-yellow-500 hover:bg-yellow-600" : "",
+        methodUpperCase == "DELETE" ? "bg-red-600 hover:bg-red-700" : ""
       )}>
-        <svg className="fill-white h-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M361 215C375.3 223.8 384 239.3 384 256C384 272.7 375.3 288.2 361 296.1L73.03 472.1C58.21 482 39.66 482.4 24.52 473.9C9.377 465.4 0 449.4 0 432V80C0 62.64 9.377 46.63 24.52 38.13C39.66 29.64 58.21 29.99 73.03 39.04L361 215z"></path></svg>
-        {!loading ? "Send Request" : "Sending..."}
+        <svg className="fill-white h-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+          <path d="M361 215C375.3 223.8 384 239.3 384 256C384 272.7 375.3 288.2 361 296.1L73.03 472.1C58.21 482 39.66 482.4 24.52 473.9C9.377 465.4 0 449.4 0 432V80C0 62.64 9.377 46.63 24.52 38.13C39.66 29.64 58.21 29.99 73.03 39.04L361 215z"></path>
+        </svg>
+        {loading ? "Sending Request..." : "Send Request"}
       </button>
 
       {fetched ?

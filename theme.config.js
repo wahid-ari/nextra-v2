@@ -97,6 +97,16 @@ const config = {
     content: () => <>Question? Give us feedback </>,
     labels: 'feedback'
   },
+  sidebar: {
+    titleComponent({ title, type }) {
+      if (type === 'separator') {
+        return <span className="cursor-default mx-0.5">{title}</span>
+      }
+      return <>{title}</>
+    },
+    defaultMenuCollapseLevel: 1,
+    toggleButton: true,
+  },
   footer: {
     text: () => {
       return (

@@ -30,7 +30,7 @@ hr {
 /* https://nextra.site/docs/docs-theme/theme-configuration#customize-sidebar-content */
 /* https://nextra.site/docs/docs-theme/page-configuration#separators */
 li.nx-mt-5 {
-	@apply !my-1;
+	@apply !mt-4 !mb-1;
 }
 
 div.nextra-search {
@@ -43,12 +43,22 @@ footer > div.nx-py-12 {
 
 /* Sidemenu */
 aside > div > div > div > ul > li:not(.active) > a {
-	@apply dark:text-neutral-400;
+	@apply dark:text-neutral-400 mt-1;
 }
 
 /* Sidemenu item*/
 div.nx-transform-gpu > div > ul > li:not(.active) > a {
-	@apply dark:text-neutral-400 dark:hover:text-neutral-100 mr-1;
+	@apply dark:text-neutral-400 dark:hover:text-neutral-100 mx-0.5 mt-1;
+}
+
+/* Sidemenu item active*/
+div.nx-transform-gpu > div > ul > li.active > a {
+	@apply mx-0.5 mt-1;
+}
+
+/* Sidemenu last item*/
+div.nx-transform-gpu > div.nx-transition-opacity > ul  {
+	@apply pb-1;
 }
 
 /* Menu item mobile*/

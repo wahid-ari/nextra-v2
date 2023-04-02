@@ -26,6 +26,11 @@ hr {
 	@apply border-neutral-200 dark:border-neutral-800 !important;
 }
 
+/* Breadcrumb */
+div.nextra-breadcrumb > div {
+	@apply px-[0.8px] rounded;
+}
+
 /* Separator */
 /* https://nextra.site/docs/docs-theme/theme-configuration#customize-sidebar-content */
 /* https://nextra.site/docs/docs-theme/page-configuration#separators */
